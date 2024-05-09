@@ -26,11 +26,17 @@ const ItemsSection = () => {
       </Bounce>
 
       {loading ? (
-        <div className="item-container">
-          <div className="h-[400px] w-[300px] bg-slate-200 animate-pulse rounded-xl "></div>
-          <div className="h-[400px] w-[300px] bg-slate-200 animate-pulse rounded-xl"></div>
-          <div className="h-[400px] w-[300px] bg-slate-200 animate-pulse rounded-xl "></div>
-          <div className="h-[400px] w-[300px] bg-slate-200 animate-pulse rounded-xl "></div>
+        <div className="flex flex-col gap-4 ">
+          <div className=" text-center m-auto p-[30px] bg-lime-300 text-white">
+            WE ARE USING A FREE HOST, YOU SHOULD WAIT ONLY 30 SEC TO LOAD THE
+            PRODUCTS
+          </div>
+          <div className="item-container">
+            <div className="h-[400px] w-[290px] bg-slate-200 animate-pulse rounded-xl "></div>
+            <div className="h-[400px] w-[290px] bg-slate-200 animate-pulse rounded-xl"></div>
+            <div className="h-[400px] w-[290px] bg-slate-200 animate-pulse rounded-xl "></div>
+            <div className="h-[400px] w-[290px] bg-slate-200 animate-pulse rounded-xl "></div>
+          </div>
         </div>
       ) : (
         <div className="item-container">

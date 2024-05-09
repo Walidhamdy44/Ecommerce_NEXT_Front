@@ -20,7 +20,7 @@ const UserHeader = () => {
           <div className="relative">
             <Cart>
               <span className="absolute  bage text-[15px]">{cart.length}</span>
-              <AiOutlineShopping className="cursor-pointer hover:scale-[1.5] hover:text-red-400 transition-all" />
+              <AiOutlineShopping className="cursor-pointer  hover:scale-[1.5] hover:text-red-400 transition-all" />
             </Cart>
           </div>
           <FaRegHeart className="cursor-pointer hover:scale-[1.5] hover:text-red-400 transition-all" />

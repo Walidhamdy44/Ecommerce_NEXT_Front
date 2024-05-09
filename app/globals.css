@@ -448,3 +448,7 @@ button {
   width: 46px !important;
   height: 46px !important;
 }
+.paymentImage {
+  height: 500px;
+  width: auto;
+}
