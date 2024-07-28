@@ -5,7 +5,7 @@ const { default: axios } = require("axios");
 const apikey = process.env.NEXT_PUBLIC_REST_API_KEY;
 
 // Define the base URL for the API requests
-const Url = "https://ecommerce-app-stapi-backend.onrender.com/api/";
+const Url = "https://ecommerceappstapibackend-production.up.railway.app/api/";
 
 // Create an instance of Axios with the base URL and authorization headers
 export const AxiosAPI = axios.create({
