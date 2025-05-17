@@ -1,95 +1,138 @@
+
 // Product categories data
 const generateProductsByCategory = () => {
   const categories = {
     Electronics: [
       {
-        title: "Apple MacBook Pro M3",
-        description: "14-inch, M3 Pro chip, 18GB RAM, 512GB SSD",
-        price: 1999.99,
-        image: "https://m.media-amazon.com/images/I/61liNHgqJ9L._AC_SX679_.jpg",
+        title: "Samsung Galaxy S24 Ultra",
+        description: "256GB, Titanium Gray, Android Smartphone with Advanced AI Features",
+        price: 1299.99,
+        image: "https://m.media-amazon.com/images/I/71fGsX9GWdL._AC_SX679_.jpg",
       },
       {
-        title: "Samsung 65-inch OLED 4K TV",
-        description: "S95C Series Quantum HDR",
-        price: 2499.99,
-        image: "https://m.media-amazon.com/images/I/91RfzivKmwL._AC_SX679_.jpg",
+        title: "Apple MacBook Pro M3",
+        description: "14-inch, 18GB RAM, 512GB SSD, Space Black",
+        price: 1999.99,
+        image: "https://m.media-amazon.com/images/I/61YCWzjldDL._AC_SX679_.jpg",
       },
-      // Add more electronics...
+      {
+        title: "Sony WH-1000XM5",
+        description: "Wireless Noise Canceling Headphones with Auto Noise Canceling Optimizer",
+        price: 399.99,
+        image: "https://m.media-amazon.com/images/I/61+btxzpfDL._AC_SX679_.jpg",
+      },
+      {
+        title: "LG C3 65-Inch OLED TV",
+        description: "4K Smart TV with AI-Powered Processing",
+        price: 1796.99,
+        image: "https://m.media-amazon.com/images/I/81I+ee+ettL._AC_SX679_.jpg",
+      }
     ],
     Sports: [
       {
-        title: "NordicTrack Commercial Treadmill",
-        description: "30-Day iFIT Family Membership Included",
-        price: 1799.99,
-        image: "https://m.media-amazon.com/images/I/81q+-c7GtzL._AC_SX679_.jpg",
+        title: "NordicTrack Commercial 2450",
+        description: "Treadmill with 22\" HD Touchscreen and Auto-Adjusting Incline",
+        price: 2499.99,
+        image: "https://m.media-amazon.com/images/I/81Y1JnQyQEL._AC_SX679_.jpg",
       },
       {
-        title: "Bowflex SelectTech 552 Dumbbells",
-        description: "Adjustable Weight Set",
+        title: "Bowflex SelectTech 552",
+        description: "Adjustable Dumbbells with Weight Range 5-52.5 lbs",
         price: 429.99,
         image: "https://m.media-amazon.com/images/I/71+pOdQ7iKL._AC_SX679_.jpg",
       },
-      // Add more sports equipment...
+      {
+        title: "YOSUDA Indoor Cycling Bike",
+        description: "Stationary Exercise Bike with iPad Mount",
+        price: 299.99,
+        image: "https://m.media-amazon.com/images/I/71PMC-96cyL._AC_SX679_.jpg",
+      },
+      {
+        title: "ROGUE Echo Bike",
+        description: "Professional Air Bike with LCD Console",
+        price: 795.00,
+        image: "https://m.media-amazon.com/images/I/71-ZYyooCWL._AC_SX679_.jpg",
+      }
     ],
     Accessories: [
       {
         title: "Apple Watch Series 9",
-        description: "GPS 45mm Aluminum Case",
+        description: "GPS 45mm Aluminum Case with Sport Band",
         price: 429.99,
         image: "https://m.media-amazon.com/images/I/81I70qV6cOL._AC_SX679_.jpg",
       },
       {
-        title: "Sony WH-1000XM5",
-        description: "Wireless Noise Canceling Headphones",
-        price: 399.99,
-        image: "https://m.media-amazon.com/images/I/61+btxzpfDL._AC_SX679_.jpg",
+        title: "Samsung Galaxy Watch 6",
+        description: "44mm LTE Smartwatch with Advanced Sleep Coaching",
+        price: 349.99,
+        image: "https://m.media-amazon.com/images/I/61ZXwnqqN+L._AC_SX679_.jpg",
       },
-      // Add more accessories...
+      {
+        title: "Logitech MX Master 3S",
+        description: "Wireless Performance Mouse with Ultra-fast Scrolling",
+        price: 99.99,
+        image: "https://m.media-amazon.com/images/I/61ni3t1ryQL._AC_SX679_.jpg",
+      },
+      {
+        title: "Apple AirPods Pro 2",
+        description: "Active Noise Cancelling Earbuds with MagSafe Charging",
+        price: 249.99,
+        image: "https://m.media-amazon.com/images/I/61SUj2aKoEL._AC_SX679_.jpg",
+      }
     ]
   };
 
   let id = 1;
   const products = [];
 
-  // Generate 100+ products for each category
+  // Generate variations for each base product
   Object.entries(categories).forEach(([category, baseProducts]) => {
-    // Create variations of base products
-    for (let i = 0; i < Math.ceil(100 / baseProducts.length); i++) {
-      baseProducts.forEach(base => {
-        const variations = [
-          { suffix: "Pro", priceMultiplier: 1.2 },
-          { suffix: "Plus", priceMultiplier: 1.1 },
-          { suffix: "Lite", priceMultiplier: 0.9 },
-          { suffix: "Max", priceMultiplier: 1.3 },
-          { suffix: "Basic", priceMultiplier: 0.8 }
-        ];
+    baseProducts.forEach(base => {
+      // Create multiple variations with different configurations
+      const variations = [
+        { suffix: "Pro", priceMultiplier: 1.2, features: "Professional Edition" },
+        { suffix: "Plus", priceMultiplier: 1.1, features: "Enhanced Version" },
+        { suffix: "Max", priceMultiplier: 1.3, features: "Maximum Performance" },
+        { suffix: "Elite", priceMultiplier: 1.4, features: "Elite Edition" },
+        { suffix: "Ultimate", priceMultiplier: 1.5, features: "Ultimate Package" },
+        { suffix: "", priceMultiplier: 1.0, features: "Standard Edition" }
+      ];
 
-        variations.forEach(variation => {
-          products.push({
-            id: id++,
-            attributes: {
-              title: `${base.title} ${variation.suffix}`,
-              description: `${base.description} - ${variation.suffix} Edition`,
-              price: Math.round(base.price * variation.priceMultiplier * 100) / 100,
-              category: category,
-              badge: ["New", "Featured", "Sale", "Best Seller"][Math.floor(Math.random() * 4)],
-              imgs: {
-                data: [
-                  { attributes: { url: base.image } },
-                  { attributes: { url: base.image } }
-                ]
-              },
-              coverImg: {
-                data: {
-                  attributes: { url: base.image }
-                }
+      variations.forEach((variation, index) => {
+        const titleSuffix = variation.suffix ? ` ${variation.suffix}` : '';
+        products.push({
+          id: id++,
+          attributes: {
+            title: `${base.title}${titleSuffix}`,
+            description: `${base.description} - ${variation.features}`,
+            price: Math.round(base.price * variation.priceMultiplier * 100) / 100,
+            category: category,
+            badge: ["New", "Featured", "Best Seller", "Limited Edition"][Math.floor(Math.random() * 4)],
+            imgs: {
+              data: [
+                { attributes: { url: base.image } },
+                { attributes: { url: base.image } }
+              ]
+            },
+            coverImg: {
+              data: {
+                attributes: { url: base.image }
               }
             }
-          });
+          }
         });
       });
-    }
+    });
   });
+
+  // Ensure we have at least 100 products per category
+  while (products.length < 300) {
+    const originalProduct = products[Math.floor(Math.random() * products.length)];
+    const clone = JSON.parse(JSON.stringify(originalProduct));
+    clone.id = id++;
+    clone.attributes.title += ` (Special Edition)`;
+    products.push(clone);
+  }
 
   return products;
 };
