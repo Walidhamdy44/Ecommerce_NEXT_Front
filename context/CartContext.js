@@ -1,20 +1,41 @@
 "use client";
-import { useRouter } from "next/navigation";
-import { useState } from "react";
-import { createContext } from "react";
+import { createContext, useState, useEffect } from "react";
 
-// Create a context for cart data
 export const CartContext = createContext();
 
-// CartProvider component to manage cart state
 export const CartProvider = ({ children }) => {
-  const [cart, setCart] = useState([]); // State variable for cart data
-  const router = useRouter; // Get the router object
+  const [cart, setCart] = useState([]);
+
+  // Load cart from localStorage on mount
+  useEffect(() => {
+    const savedCart = localStorage.getItem("cart");
+    if (savedCart) {
+      setCart(JSON.parse(savedCart));
+    }
+  }, []);
+
+  // Save cart to localStorage whenever it changes
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
+
+  const addToCart = (product) => {
+    setCart((prevCart) => {
+      const existingItem = prevCart.find((item) => item.id === product.id);
+      if (existingItem) {
+        return prevCart;
+      }
+      return [...prevCart, product];
+    });
+  };
+
+  const removeFromCart = (productId) => {
+    setCart((prevCart) => prevCart.filter((item) => item.id !== productId));
+  };
 
   return (
-    // Provide cart state and setter function to child components via context
-    <CartContext.Provider value={{ cart, setCart }}>
-      {children} {/* Render children components */}
+    <CartContext.Provider value={{ cart, setCart, addToCart, removeFromCart }}>
+      {children}
     </CartContext.Provider>
   );
 };

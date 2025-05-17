@@ -14,7 +14,7 @@ import { Input } from "@/components/ui/input";
 
 const Footer = () => {
   return (
-    <div className="container py-[20px] shadow-b">
+    <div className="p-[20px] shadow-b">
       <div className="flex items-start gap-4 mt-[50px] footer max-md:flex-col">
         <div className="flex items-start gap-2 flex-col flex-[1.3]">
           <Link href="/" className="flex items-center gap-4 ">
