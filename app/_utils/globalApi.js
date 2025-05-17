@@ -96,18 +96,6 @@ const generateProductsByCategory = () => {
       // Create multiple variations with different configurations
       const variations = [
         {
-          suffix: "Pro",
-          priceMultiplier: 1.2,
-          features: "Professional Edition",
-        },
-        { suffix: "Plus", priceMultiplier: 1.1, features: "Enhanced Version" },
-        {
-          suffix: "Max",
-          priceMultiplier: 1.3,
-          features: "Maximum Performance",
-        },
-        { suffix: "Elite", priceMultiplier: 1.4, features: "Elite Edition" },
-        {
           suffix: "Ultimate",
           priceMultiplier: 1.5,
           features: "Ultimate Package",
@@ -146,7 +134,7 @@ const generateProductsByCategory = () => {
   });
 
   // Ensure we have at least 100 products per category
-  while (products.length < 100) {
+  while (products.length < 10) {
     const originalProduct =
       products[Math.floor(Math.random() * products.length)];
     const clone = JSON.parse(JSON.stringify(originalProduct));
