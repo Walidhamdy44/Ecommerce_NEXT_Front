@@ -95,11 +95,6 @@ const generateProductsByCategory = () => {
     baseProducts.forEach((base) => {
       // Create multiple variations with different configurations
       const variations = [
-        {
-          suffix: "Ultimate",
-          priceMultiplier: 1.5,
-          features: "Ultimate Package",
-        },
         { suffix: "", priceMultiplier: 1.0, features: "Standard Edition" },
       ];
 
