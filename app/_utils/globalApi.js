@@ -1,233 +1,100 @@
-// Real product data from Amazon
-const dummyProducts = [
-  {
-    id: 1,
-    attributes: {
-      title: "SAMSUNG Galaxy S24 Ultra Android Smartphone",
-      description: "256GB, Titanium Gray, S Pen, AI-Powered Features (EG Version)",
-      price: 1599.99,
-      category: "Electronics",
-      badge: "New",
-      imgs: {
-        data: [
-          {
-            attributes: {
-              url: "https://m.media-amazon.com/images/I/71fGsX9GWdL._AC_SX679_.jpg",
-            },
-          },
-          {
-            attributes: {
-              url: "https://m.media-amazon.com/images/I/71HN7EH6yBL._AC_SX679_.jpg",
-            },
-          },
-        ],
+// Product categories data
+const generateProductsByCategory = () => {
+  const categories = {
+    Electronics: [
+      {
+        title: "Apple MacBook Pro M3",
+        description: "14-inch, M3 Pro chip, 18GB RAM, 512GB SSD",
+        price: 1999.99,
+        image: "https://m.media-amazon.com/images/I/61liNHgqJ9L._AC_SX679_.jpg",
       },
-      coverImg: {
-        data: {
-          attributes: {
-            url: "https://m.media-amazon.com/images/I/81+GIkwqF+L._AC_SX679_.jpg",
-          },
-        },
+      {
+        title: "Samsung 65-inch OLED 4K TV",
+        description: "S95C Series Quantum HDR",
+        price: 2499.99,
+        image: "https://m.media-amazon.com/images/I/91RfzivKmwL._AC_SX679_.jpg",
       },
-    },
-  },
-  {
-    id: 2,
-    attributes: {
-      title: "Samsung Galaxy S24 Ultra Android Smartphone",
-      description: "512GB Storage, Titanium Gray, AI-Powered Features",
-      price: 1299.99,
-      category: "Electronics",
-      badge: "Featured",
-      imgs: {
-        data: [
-          {
-            attributes: {
-              url: "https://m.media-amazon.com/images/I/71nkpcyoFDL._AC_SX679_.jpg",
-            },
-          },
-          {
-            attributes: {
-              url: "https://m.media-amazon.com/images/I/81lnKabqs3L._AC_SX679_.jpg",
-            },
-          },
-        ],
+      // Add more electronics...
+    ],
+    Sports: [
+      {
+        title: "NordicTrack Commercial Treadmill",
+        description: "30-Day iFIT Family Membership Included",
+        price: 1799.99,
+        image: "https://m.media-amazon.com/images/I/81q+-c7GtzL._AC_SX679_.jpg",
       },
-      coverImg: {
-        data: {
-          attributes: {
-            url: "https://m.media-amazon.com/images/I/71nkpcyoFDL._AC_SX679_.jpg",
-          },
-        },
+      {
+        title: "Bowflex SelectTech 552 Dumbbells",
+        description: "Adjustable Weight Set",
+        price: 429.99,
+        image: "https://m.media-amazon.com/images/I/71+pOdQ7iKL._AC_SX679_.jpg",
       },
-    },
-  },
-  {
-    id: 3,
-    attributes: {
-      title: "Apple 2023 MacBook Pro",
-      description: "16-inch, M3 Pro chip, 18GB RAM, 512GB SSD",
-      price: 2499.99,
-      category: "Electronics",
-      badge: "Sale",
-      imgs: {
-        data: [
-          {
-            attributes: {
-              url: "https://m.media-amazon.com/images/I/61LNGJEMh0L._AC_SX679_.jpg",
-            },
-          },
-          {
-            attributes: {
-              url: "https://m.media-amazon.com/images/I/71DBkrxqBDL._AC_SX679_.jpg",
-            },
-          },
-        ],
+      // Add more sports equipment...
+    ],
+    Accessories: [
+      {
+        title: "Apple Watch Series 9",
+        description: "GPS 45mm Aluminum Case",
+        price: 429.99,
+        image: "https://m.media-amazon.com/images/I/81I70qV6cOL._AC_SX679_.jpg",
       },
-      coverImg: {
-        data: {
-          attributes: {
-            url: "https://m.media-amazon.com/images/I/61LNGJEMh0L._AC_SX679_.jpg",
-          },
-        },
+      {
+        title: "Sony WH-1000XM5",
+        description: "Wireless Noise Canceling Headphones",
+        price: 399.99,
+        image: "https://m.media-amazon.com/images/I/61+btxzpfDL._AC_SX679_.jpg",
       },
-    },
-  },
-  {
-    id: 4,
-    attributes: {
-      title: "Sony WH-1000XM5 Wireless Headphones",
-      description: "Industry Leading Noise Canceling, Black",
-      price: 399.99,
-      category: "Electronics",
-      badge: "Best Seller",
-      imgs: {
-        data: [
-          {
-            attributes: {
-              url: "https://m.media-amazon.com/images/I/61+btxzpfDL._AC_SX679_.jpg",
-            },
-          },
-          {
-            attributes: {
-              url: "https://m.media-amazon.com/images/I/71o8Q5DpBOL._AC_SX679_.jpg",
-            },
-          },
-        ],
-      },
-      coverImg: {
-        data: {
-          attributes: {
-            url: "https://m.media-amazon.com/images/I/61+btxzpfDL._AC_SX679_.jpg",
-          },
-        },
-      },
-    },
-  },
-  {
-    id: 5,
-    attributes: {
-      title: "Apple iPad Pro 12.9-inch",
-      description: "2024 Release, M2 chip, Wi-Fi, 256GB, Space Gray",
-      price: 1099.99,
-      category: "Electronics",
-      badge: "New Release",
-      imgs: {
-        data: [
-          {
-            attributes: {
-              url: "https://m.media-amazon.com/images/I/81c+9BOQNWL._AC_SX679_.jpg",
-            },
-          },
-          {
-            attributes: {
-              url: "https://m.media-amazon.com/images/I/61XZQXFQeVL._AC_SX679_.jpg",
-            },
-          },
-        ],
-      },
-      coverImg: {
-        data: {
-          attributes: {
-            url: "https://m.media-amazon.com/images/I/81c+9BOQNWL._AC_SX679_.jpg",
-          },
-        },
-      },
-    },
-  },
-];
+      // Add more accessories...
+    ]
+  };
 
-// Generate more unique products
-const generateUniqueProducts = () => {
-  const products = [
-    {
-      name: "Apple iPad 10th Generation",
-      image: "https://m.media-amazon.com/images/I/61uA2UVnYWL._AC_SX679_.jpg",
-      price: 499.99,
-      category: "Electronics",
-    },
-    {
-      name: "Sony WH-1000XM5 Wireless Headphones",
-      image: "https://m.media-amazon.com/images/I/61+btxzpfDL._AC_SX679_.jpg",
-      price: 399.99,
-      category: "Electronics",
-    },
-    {
-      name: "Samsung 32-inch Odyssey G5 Gaming Monitor",
-      image: "https://m.media-amazon.com/images/I/81eqZ3AqHGL._AC_SX679_.jpg",
-      price: 299.99,
-      category: "Electronics",
-    },
-    {
-      name: "Apple Watch Series 9",
-      image: "https://m.media-amazon.com/images/I/81I70qV6cOL._AC_SX679_.jpg",
-      price: 399.99,
-      category: "Electronics",
-    },
-    {
-      name: "ASUS ROG Gaming Laptop",
-      image: "https://m.media-amazon.com/images/I/71m7XVxRD5L._AC_SX679_.jpg",
-      price: 1299.99,
-      category: "Electronics",
-    },
-    {
-      name: "Logitech MX Master 3S Mouse",
-      image: "https://m.media-amazon.com/images/I/61ni3t1ryQL._AC_SX679_.jpg",
-      price: 99.99,
-      category: "Electronics",
-    },
-    // Add more products here...
-  ];
+  let id = 1;
+  const products = [];
 
-  let id = 6;
-  for (const product of products) {
-    dummyProducts.push({
-      id: id++,
-      attributes: {
-        title: product.name,
-        description: `High-quality ${product.category.toLowerCase()} product`,
-        price: product.price,
-        category: product.category,
-        badge: ["New", "Featured", "Sale", "Best Seller"][
-          Math.floor(Math.random() * 4)
-        ],
-        imgs: {
-          data: [
-            { attributes: { url: product.image } },
-            { attributes: { url: product.image } },
-          ],
-        },
-        coverImg: {
-          data: {
-            attributes: { url: product.image },
-          },
-        },
-      },
-    });
-  }
+  // Generate 100+ products for each category
+  Object.entries(categories).forEach(([category, baseProducts]) => {
+    // Create variations of base products
+    for (let i = 0; i < Math.ceil(100 / baseProducts.length); i++) {
+      baseProducts.forEach(base => {
+        const variations = [
+          { suffix: "Pro", priceMultiplier: 1.2 },
+          { suffix: "Plus", priceMultiplier: 1.1 },
+          { suffix: "Lite", priceMultiplier: 0.9 },
+          { suffix: "Max", priceMultiplier: 1.3 },
+          { suffix: "Basic", priceMultiplier: 0.8 }
+        ];
+
+        variations.forEach(variation => {
+          products.push({
+            id: id++,
+            attributes: {
+              title: `${base.title} ${variation.suffix}`,
+              description: `${base.description} - ${variation.suffix} Edition`,
+              price: Math.round(base.price * variation.priceMultiplier * 100) / 100,
+              category: category,
+              badge: ["New", "Featured", "Sale", "Best Seller"][Math.floor(Math.random() * 4)],
+              imgs: {
+                data: [
+                  { attributes: { url: base.image } },
+                  { attributes: { url: base.image } }
+                ]
+              },
+              coverImg: {
+                data: {
+                  attributes: { url: base.image }
+                }
+              }
+            }
+          });
+        });
+      });
+    }
+  });
+
+  return products;
 };
 
-generateUniqueProducts();
+const dummyProducts = generateProductsByCategory();
 
 // API functions
 const getAllProduct = () => {
@@ -236,7 +103,7 @@ const getAllProduct = () => {
 
 const getAllProductByCat = (cat) => {
   const filteredProducts = dummyProducts.filter(
-    (product) => product.attributes.category === cat,
+    (product) => product.attributes.category === cat
   );
   return Promise.resolve({ data: { data: filteredProducts } });
 };
@@ -261,7 +128,7 @@ const deleteItemFromCart = async (id) => {
 const getAllProductWithFilter = async (cat) => {
   if (!cat) return Promise.resolve({ data: dummyProducts });
   const filteredProducts = dummyProducts.filter(
-    (product) => product.attributes.category === cat,
+    (product) => product.attributes.category === cat
   );
   return Promise.resolve({ data: filteredProducts });
 };
