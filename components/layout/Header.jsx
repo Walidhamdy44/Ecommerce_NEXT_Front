@@ -8,7 +8,7 @@ import UserHeader from "./UserHeader";
 const Header = () => {
   return (
     <div>
-      <div className="container shadow-t flex items-center gap-4 justify-between lg:p-4 md:p-5 max-md:p-[10px]">
+      <div className="w-full shadow-t flex items-center gap-4 justify-between lg:px-8 md:px-6 max-md:px-4 py-4">
         <div className="logo">
           <Link href="/">
             <Image
