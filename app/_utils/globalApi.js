@@ -3,21 +3,21 @@ const dummyProducts = [
   {
     id: 1,
     attributes: {
-      title: "Apple iPhone 15 Pro Max",
-      description: "256GB, Natural Titanium - Unlocked (Renewed Premium)",
-      price: 1199.99,
+      title: "SAMSUNG Galaxy S24 Ultra Android Smartphone",
+      description: "256GB, Titanium Gray, S Pen, AI-Powered Features (EG Version)",
+      price: 1599.99,
       category: "Electronics",
       badge: "New",
       imgs: {
         data: [
           {
             attributes: {
-              url: "https://m.media-amazon.com/images/I/81+GIkwqF+L._AC_SX679_.jpg",
+              url: "https://m.media-amazon.com/images/I/71fGsX9GWdL._AC_SX679_.jpg",
             },
           },
           {
             attributes: {
-              url: "https://m.media-amazon.com/images/I/71TSx9D2BVL._AC_SX679_.jpg",
+              url: "https://m.media-amazon.com/images/I/71HN7EH6yBL._AC_SX679_.jpg",
             },
           },
         ],
@@ -161,21 +161,39 @@ const dummyProducts = [
 const generateUniqueProducts = () => {
   const products = [
     {
-      name: "Samsung 65-Inch OLED TV",
-      image: "https://m.media-amazon.com/images/I/91RfzivKmwL._AC_SX679_.jpg",
-      price: 2799.99,
+      name: "Apple iPad 10th Generation",
+      image: "https://m.media-amazon.com/images/I/61uA2UVnYWL._AC_SX679_.jpg",
+      price: 499.99,
       category: "Electronics",
     },
     {
-      name: "Dell XPS 15 Laptop",
-      image: "https://m.media-amazon.com/images/I/71dK2g+UqbL._AC_SX679_.jpg",
-      price: 1899.99,
+      name: "Sony WH-1000XM5 Wireless Headphones",
+      image: "https://m.media-amazon.com/images/I/61+btxzpfDL._AC_SX679_.jpg",
+      price: 399.99,
       category: "Electronics",
     },
     {
-      name: "Bose QuietComfort Earbuds II",
-      image: "https://m.media-amazon.com/images/I/61Qg3IRqFiL._AC_SX679_.jpg",
+      name: "Samsung 32-inch Odyssey G5 Gaming Monitor",
+      image: "https://m.media-amazon.com/images/I/81eqZ3AqHGL._AC_SX679_.jpg",
       price: 299.99,
+      category: "Electronics",
+    },
+    {
+      name: "Apple Watch Series 9",
+      image: "https://m.media-amazon.com/images/I/81I70qV6cOL._AC_SX679_.jpg",
+      price: 399.99,
+      category: "Electronics",
+    },
+    {
+      name: "ASUS ROG Gaming Laptop",
+      image: "https://m.media-amazon.com/images/I/71m7XVxRD5L._AC_SX679_.jpg",
+      price: 1299.99,
+      category: "Electronics",
+    },
+    {
+      name: "Logitech MX Master 3S Mouse",
+      image: "https://m.media-amazon.com/images/I/61ni3t1ryQL._AC_SX679_.jpg",
+      price: 99.99,
       category: "Electronics",
     },
     // Add more products here...
